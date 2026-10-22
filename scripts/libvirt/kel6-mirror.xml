@@ -1,0 +1,4 @@
+<network>
+  <name>kel6-mirror</name>
+  <bridge name='virbr-kel6x' stp='off' delay='0'/>
+</network>

@@ -7,10 +7,10 @@ Ini adalah gambaran untuk lab kami nantinya. Gambar topologinya ada di [topology
 | Hostname                                         | IP Address                        | OS Direncanakan    |
 |--------------------------------------------------|-----------------------------------|--------------------|
 | Attacker Node (`kali-attacker`)                  | 10.6.6.10/24                      | Kali Linux         |
-| Target Node (`metasploitable2`)                  | 172.16.6.10/24                    | Metasploitable 2   |
+| Target Node (`SRV-WEB-KEL06B`)                   | 172.16.6.10/24                    | Metasploitable 2   |
 | Monitoring Node (`securityonion`), NIC manajemen | 192.168.6.10/24                   | Security Onion 2.4 |
 | Monitoring Node (`securityonion`), NIC monitor   | tanpa IP (mode sniffing)          | Security Onion 2.4 |
-| Router (`router`)                                | 10.6.6.1, 172.16.6.1, 192.168.6.1 | Cisco IOS          |
+| Router (`router`)                                | 10.6.6.1, 172.16.6.1, 192.168.6.1 | Host Linux (KVM)   |
 
 ## Segmen Jaringan
 
@@ -32,7 +32,7 @@ Lab ini dibagi jadi tiga segmen IP. Ketiganya nanti ketemu di satu router, ditam
 | `router`          | G0/2      | 192.168.6.1  | 255.255.255.0 | -           | Gateway segmen Monitoring         |
 | `router`          | G0/3      | tanpa IP     | -             | -           | Port tujuan mirror                |
 | `kali-attacker`   | eth0      | 10.6.6.10    | 255.255.255.0 | 10.6.6.1    | Melancarkan serangan              |
-| `metasploitable2` | eth0      | 172.16.6.10  | 255.255.255.0 | 172.16.6.1  | Korban serangan                   |
+| `SRV-WEB-KEL06B`  | eth0      | 172.16.6.10  | 255.255.255.0 | 172.16.6.1  | Korban serangan                   |
 | `securityonion`   | NIC 1     | 192.168.6.10 | 255.255.255.0 | 192.168.6.1 | Manajemen (web console, SSH)      |
 | `securityonion`   | NIC 2     | tanpa IP     | -             | -           | Monitor (menangkap trafik mirror) |
 
@@ -71,7 +71,20 @@ Kenapa dipisah? Karena ini menjaga data supaya tetap bersih. Yang dianalisis han
 
 G0/2 sengaja tidak ikut dimirror. Itu cuma berisi traffic manajemen Security Onion sendiri, jadi kalau ikut dimirror, dia bakalan ngerekam aksesnya sendiri.
 
-Cara teknis membuat mirror (SPAN di switch, fitur ekspor trafik di router, atau mirror di level hypervisor) masih disesuaikan dengan platform lab. Bagian ini akan diperbarui setelah implementasi diuji.
+## Implementasi di KVM (pembaruan Minggu 6)
+
+Lab akhirnya dibangun di KVM/libvirt pada satu laptop. Router Cisco di diagram diganti host Linux itu sendiri, dan tiap interface router menjadi satu bridge libvirt:
+
+| Interface Router | Bridge di Host | Jaringan libvirt | Alamat         |
+|------------------|----------------|------------------|----------------|
+| G0/0             | `virbr-kel6a`  | `kel6-attacker`  | 10.6.6.1/24    |
+| G0/1             | `virbr-kel6t`  | `kel6-target`    | 172.16.6.1/24  |
+| G0/2             | `virbr-kel6m`  | `kel6-mgmt`      | 192.168.6.1/24 |
+| G0/3             | `virbr-kel6x`  | `kel6-mirror`    | tanpa IP       |
+
+Mirror dibuat di level hypervisor dengan `tc` (qdisc `clsact` dan aksi `mirred`) pada `virbr-kel6a` dan `virbr-kel6t`, dua arah, dengan tujuan `virbr-kel6x`. Skripnya ada di [scripts/lab-up.sh](../../scripts/lab-up.sh). Karena paket Attacker ke Target melewati kedua bridge sumber, Security Onion menerima setiap paket dua kali, sama seperti SPAN pada dua port di switch fisik.
+
+Hostname Target Node diganti `SRV-WEB-KEL06B` mengikuti format panduan Fase 1. Detail hardening ada di [baseline-report.md](../phase-1-baseline/baseline-report.md).
 
 ## Kebutuhan Minimum Security Onion
 

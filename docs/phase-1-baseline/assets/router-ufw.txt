@@ -1,0 +1,67 @@
+$ ip -br addr (bridge lab di router)
+virbr-kel6a      UP             10.6.6.1/24 
+virbr-kel6m      UP             192.168.6.1/24 
+virbr-kel6x      UP             
+virbr-kel6t      UP             172.16.6.1/24 
+
+$ tc filter show (port mirror)
+# virbr-kel6a ingress
+filter protocol all pref 49152 matchall chain 0 
+filter protocol all pref 49152 matchall chain 0 handle 0x1 
+  not_in_hw
+	action order 1: mirred (Egress Mirror to device virbr-kel6x) pipe
+	index 1 ref 1 bind 1
+
+# virbr-kel6a egress
+filter protocol all pref 49152 matchall chain 0 
+filter protocol all pref 49152 matchall chain 0 handle 0x1 
+  not_in_hw
+	action order 1: mirred (Egress Mirror to device virbr-kel6x) pipe
+	index 2 ref 1 bind 1
+
+# virbr-kel6t ingress
+filter protocol all pref 49152 matchall chain 0 
+filter protocol all pref 49152 matchall chain 0 handle 0x1 
+  not_in_hw
+	action order 1: mirred (Egress Mirror to device virbr-kel6x) pipe
+	index 3 ref 1 bind 1
+
+# virbr-kel6t egress
+filter protocol all pref 49152 matchall chain 0 
+filter protocol all pref 49152 matchall chain 0 handle 0x1 
+  not_in_hw
+	action order 1: mirred (Egress Mirror to device virbr-kel6x) pipe
+	index 4 ref 1 bind 1
+
+
+$ grep -A1 kel6 /etc/ufw/user.rules
+### tuple ### route:allow any any 172.16.6.0/24 any 10.6.6.0/24 in_virbr-kel6a!out_virbr-kel6t comment=6b656c363a2061747461636b6572206b6520746172676574
+-A ufw-user-forward -i virbr-kel6a -o virbr-kel6t -d 172.16.6.0/24 -s 10.6.6.0/24 -j ACCEPT
+
+### tuple ### route:deny any any 0.0.0.0/0 any 0.0.0.0/0 in_virbr-kel6t!out_virbr-kel6a comment=6b656c363a20746172676574206b652061747461636b6572206469746f6c616b
+-A ufw-user-forward -i virbr-kel6t -o virbr-kel6a -j DROP
+
+### tuple ### route:deny any any 0.0.0.0/0 any 0.0.0.0/0 in_virbr-kel6a!out_virbr-kel6m comment=6b656c363a2061747461636b6572206b65206d6f6e69746f72696e67206469746f6c616b
+-A ufw-user-forward -i virbr-kel6a -o virbr-kel6m -j DROP
+
+### tuple ### route:deny any any 0.0.0.0/0 any 0.0.0.0/0 in_virbr-kel6t!out_virbr-kel6m comment=6b656c363a20746172676574206b65206d6f6e69746f72696e67206469746f6c616b
+-A ufw-user-forward -i virbr-kel6t -o virbr-kel6m -j DROP
+
+### tuple ### route:deny any any 0.0.0.0/0 any 0.0.0.0/0 in_virbr-kel6a comment=6b656c363a2061747461636b6572206b65206c756172206c6162206469746f6c616b
+-A ufw-user-forward -i virbr-kel6a -j DROP
+
+### tuple ### route:deny any any 0.0.0.0/0 any 0.0.0.0/0 in_virbr-kel6t comment=6b656c363a20746172676574206b65206c756172206c6162206469746f6c616b
+-A ufw-user-forward -i virbr-kel6t -j DROP
+
+### tuple ### deny any any 0.0.0.0/0 any 0.0.0.0/0 in_virbr-kel6a comment=6b656c363a2061747461636b6572206b6520726f75746572206469746f6c616b
+-A ufw-user-input -i virbr-kel6a -j DROP
+
+### tuple ### deny any any 0.0.0.0/0 any 0.0.0.0/0 in_virbr-kel6t comment=6b656c363a20746172676574206b6520726f75746572206469746f6c616b
+-A ufw-user-input -i virbr-kel6t -j DROP
+
+
+$ sed -n "/BEGIN kel6/,/END kel6/p" /etc/ufw/before.rules
+# BEGIN kel6 (lab PBL TEK1314)
+-A ufw-before-forward -i virbr-kel6a ! -o virbr-kel6t -j DROP
+-A ufw-before-forward -i virbr-kel6t -j DROP
+# END kel6

@@ -1,0 +1,99 @@
+$ date
+Sun Sep 27 14:35:15 EDT 2026
+
+$ hostname
+metasploitable
+
+$ sudo netstat -tulpn
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:512             0.0.0.0:*               LISTEN      4356/xinetd     
+tcp        0      0 0.0.0.0:51648           0.0.0.0:*               LISTEN      4266/rpc.mountd 
+tcp        0      0 0.0.0.0:53600           0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:513             0.0.0.0:*               LISTEN      4356/xinetd     
+tcp        0      0 0.0.0.0:2049            0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:514             0.0.0.0:*               LISTEN      4356/xinetd     
+tcp        0      0 0.0.0.0:8009            0.0.0.0:*               LISTEN      4452/jsvc       
+tcp        0      0 0.0.0.0:6697            0.0.0.0:*               LISTEN      4498/unrealircd 
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      4098/mysqld     
+tcp        0      0 0.0.0.0:1099            0.0.0.0:*               LISTEN      4490/rmiregistry
+tcp        0      0 0.0.0.0:6667            0.0.0.0:*               LISTEN      4498/unrealircd 
+tcp        0      0 0.0.0.0:139             0.0.0.0:*               LISTEN      4341/smbd       
+tcp        0      0 0.0.0.0:5900            0.0.0.0:*               LISTEN      4514/Xtightvnc  
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      3574/portmap    
+tcp        0      0 0.0.0.0:6000            0.0.0.0:*               LISTEN      4514/Xtightvnc  
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      4470/apache2    
+tcp        0      0 0.0.0.0:8787            0.0.0.0:*               LISTEN      4494/ruby       
+tcp        0      0 0.0.0.0:8180            0.0.0.0:*               LISTEN      4452/jsvc       
+tcp        0      0 0.0.0.0:1524            0.0.0.0:*               LISTEN      4356/xinetd     
+tcp        0      0 172.16.6.10:53          0.0.0.0:*               LISTEN      3952/named      
+tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      4356/xinetd     
+tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      3952/named      
+tcp        0      0 0.0.0.0:23              0.0.0.0:*               LISTEN      4356/xinetd     
+tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN      4177/postgres   
+tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      4332/master     
+tcp        0      0 127.0.0.1:953           0.0.0.0:*               LISTEN      3952/named      
+tcp        0      0 0.0.0.0:45338           0.0.0.0:*               LISTEN      4490/rmiregistry
+tcp        0      0 0.0.0.0:445             0.0.0.0:*               LISTEN      4341/smbd       
+tcp        0      0 0.0.0.0:35006           0.0.0.0:*               LISTEN      3590/rpc.statd  
+tcp6       0      0 :::2121                 :::*                    LISTEN      4396/proftpd: (acce
+tcp6       0      0 :::3632                 :::*                    LISTEN      4203/distccd    
+tcp6       0      0 :::53                   :::*                    LISTEN      3952/named      
+tcp6       0      0 :::22                   :::*                    LISTEN      4627/sshd       
+tcp6       0      0 :::5432                 :::*                    LISTEN      4177/postgres   
+tcp6       0      0 ::1:953                 :::*                    LISTEN      3952/named      
+udp        0      0 0.0.0.0:2049            0.0.0.0:*                           -               
+udp        0      0 172.16.6.10:137         0.0.0.0:*                           4339/nmbd       
+udp        0      0 0.0.0.0:137             0.0.0.0:*                           4339/nmbd       
+udp        0      0 172.16.6.10:138         0.0.0.0:*                           4339/nmbd       
+udp        0      0 0.0.0.0:138             0.0.0.0:*                           4339/nmbd       
+udp        0      0 0.0.0.0:48279           0.0.0.0:*                           3590/rpc.statd  
+udp        0      0 0.0.0.0:798             0.0.0.0:*                           3590/rpc.statd  
+udp        0      0 172.16.6.10:53          0.0.0.0:*                           3952/named      
+udp        0      0 127.0.0.1:53            0.0.0.0:*                           3952/named      
+udp        0      0 0.0.0.0:36155           0.0.0.0:*                           -               
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           4609/dhclient3  
+udp        0      0 0.0.0.0:69              0.0.0.0:*                           4356/xinetd     
+udp        0      0 0.0.0.0:42456           0.0.0.0:*                           3952/named      
+udp        0      0 0.0.0.0:37341           0.0.0.0:*                           4266/rpc.mountd 
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           3574/portmap    
+udp6       0      0 :::50837                :::*                                3952/named      
+udp6       0      0 :::53                   :::*                                3952/named      
+
+$ sudo iptables -L -n -v
+Chain INPUT (policy ACCEPT 197 packets, 38171 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 208 packets, 51519 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+$ ls /etc/rc2.d
+README
+S10sysklogd
+S10xserver-xorg-input-wacom
+S11klogd
+S15bind9
+S16ssh
+S17mysql-ndb-mgm
+S17portmap
+S18mysql-ndb
+S19mysql
+S19postgresql-8.3
+S20distcc
+S20nfs-common
+S20nfs-kernel-server
+S20openbsd-inetd
+S20postfix
+S20rsync
+S20samba
+S20xinetd
+S50proftpd
+S89atd
+S89cron
+S90tomcat5.5
+S91apache2
+S99rc.local
+S99rmnologin

@@ -23,3 +23,28 @@ Detail desain jaringan:
 
 - Topologi: [docs/design/topology.png](docs/design/topology.png)
 - Skema IP dan routing: [docs/design/ip_plan.md](docs/design/ip_plan.md)
+
+## Struktur Repository
+
+```
+docs/
+  design/              Minggu 4: topologi dan IP plan
+  phase-1-baseline/    Minggu 5 sampai 7: baseline report, bukti hardening dan logging
+  phase-2-va/          Fase 2: vulnerability assessment (belum dimulai)
+  phase-3-incident/    Fase 3: incident response (belum dimulai)
+scripts/               Skrip untuk membangun ulang lab dan hardening
+LOGBOOK.md             Catatan kegiatan per minggu
+```
+
+## Progres
+
+- Fase 1 (baseline dan hardening): [docs/phase-1-baseline/baseline-report.md](docs/phase-1-baseline/baseline-report.md)
+- Pedoman command lab: [docs/phase-1-baseline/pedoman-command.md](docs/phase-1-baseline/pedoman-command.md)
+- Logbook: [LOGBOOK.md](LOGBOOK.md)
+
+## Menyalakan Lab
+
+Lab berjalan di KVM/libvirt. Host laptop berperan sebagai router antar segmen.
+
+1. Sekali saja: buat jaringan dari `scripts/libvirt/*.xml` dengan `virsh net-define` lalu `virsh net-autostart`, kemudian jalankan `sudo sh scripts/router-ufw.sh`.
+2. Setiap kali sebelum praktik: `sudo sh scripts/lab-up.sh` untuk memasang port mirror dan menyalakan VM.

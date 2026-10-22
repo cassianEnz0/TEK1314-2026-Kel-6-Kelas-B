@@ -1,0 +1,34 @@
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 53317/udp                  ALLOW IN    Anywhere                  
+[ 2] 53317/tcp                  ALLOW IN    Anywhere                  
+[ 3] 172.17.0.1 53/udp          ALLOW IN    172.16.0.0/12              # allow-docker-dns
+[ 4] 172.17.0.1 53/udp          ALLOW IN    192.168.0.0/16             # allow-docker-dns
+[ 5] Anywhere on virbr0         ALLOW IN    Anywhere                  
+[ 6] Anywhere                   ALLOW FWD   Anywhere on virbr0        
+[ 7] 67/udp on virbr-lab        ALLOW IN    Anywhere                  
+[ 8] 53 on virbr-lab            ALLOW IN    Anywhere                  
+[ 9] 172.16.6.0/24 on virbr-kel6t ALLOW FWD   10.6.6.0/24 on virbr-kel6a # kel6: attacker ke target
+[10] Anywhere on virbr-kel6a    DENY FWD    Anywhere on virbr-kel6t    # kel6: target ke attacker ditolak
+[11] Anywhere on virbr-kel6m    DENY FWD    Anywhere on virbr-kel6a    # kel6: attacker ke monitoring ditolak
+[12] Anywhere on virbr-kel6m    DENY FWD    Anywhere on virbr-kel6t    # kel6: target ke monitoring ditolak
+[13] Anywhere                   DENY FWD    Anywhere on virbr-kel6a    # kel6: attacker ke luar lab ditolak
+[14] Anywhere                   DENY FWD    Anywhere on virbr-kel6t    # kel6: target ke luar lab ditolak
+[15] Anywhere on virbr-kel6a    DENY IN     Anywhere                   # kel6: attacker ke router ditolak
+[16] Anywhere on virbr-kel6t    DENY IN     Anywhere                   # kel6: target ke router ditolak
+[17] 53317/udp (v6)             ALLOW IN    Anywhere (v6)             
+[18] 53317/tcp (v6)             ALLOW IN    Anywhere (v6)             
+[19] Anywhere (v6) on virbr0    ALLOW IN    Anywhere (v6)             
+[20] Anywhere (v6)              ALLOW FWD   Anywhere (v6) on virbr0   
+[21] 67/udp (v6) on virbr-lab   ALLOW IN    Anywhere (v6)             
+[22] 53 (v6) on virbr-lab       ALLOW IN    Anywhere (v6)             
+[23] Anywhere (v6) on virbr-kel6a DENY FWD    Anywhere (v6) on virbr-kel6t # kel6: target ke attacker ditolak
+[24] Anywhere (v6) on virbr-kel6m DENY FWD    Anywhere (v6) on virbr-kel6a # kel6: attacker ke monitoring ditolak
+[25] Anywhere (v6) on virbr-kel6m DENY FWD    Anywhere (v6) on virbr-kel6t # kel6: target ke monitoring ditolak
+[26] Anywhere (v6)              DENY FWD    Anywhere (v6) on virbr-kel6a # kel6: attacker ke luar lab ditolak
+[27] Anywhere (v6)              DENY FWD    Anywhere (v6) on virbr-kel6t # kel6: target ke luar lab ditolak
+[28] Anywhere (v6) on virbr-kel6a DENY IN     Anywhere (v6)              # kel6: attacker ke router ditolak
+[29] Anywhere (v6) on virbr-kel6t DENY IN     Anywhere (v6)              # kel6: target ke router ditolak
+

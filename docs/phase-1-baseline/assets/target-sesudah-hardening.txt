@@ -1,0 +1,90 @@
+$ date
+Mon Sep 28 01:49:25 WIT 2026
+
+$ hostname
+SRV-WEB-KEL06B
+
+$ ip addr show eth0
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast qlen 1000
+    link/ether 00:0c:29:fa:dd:2a brd ff:ff:ff:ff:ff:ff
+    inet 172.16.6.10/24 brd 172.16.6.255 scope global eth0
+    inet6 fe80::20c:29ff:fefa:dd2a/64 scope link 
+       valid_lft forever preferred_lft forever
+
+$ ip route
+172.16.6.0/24 dev eth0  proto kernel  scope link  src 172.16.6.10 
+default via 172.16.6.1 dev eth0  metric 100 
+
+$ sudo netstat -tulpn
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:8009            0.0.0.0:*               LISTEN      4166/jsvc       
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      4034/mysqld     
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      4184/apache2    
+tcp        0      0 0.0.0.0:8180            0.0.0.0:*               LISTEN      4166/jsvc       
+tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      4109/xinetd     
+tcp6       0      0 :::22                   :::*                    LISTEN      3955/sshd       
+
+$ sudo iptables -L -n -v
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+   49  8724 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           state RELATED,ESTABLISHED 
+    0     0 ACCEPT     icmp --  *      *       10.6.6.0/24          0.0.0.0/0           icmp type 8 
+    0     0 ACCEPT     icmp --  *      *       192.168.6.0/24       0.0.0.0/0           icmp type 8 
+    0     0 ACCEPT     icmp --  *      *       172.16.6.1           0.0.0.0/0           icmp type 8 
+    0     0 ACCEPT     tcp  --  *      *       10.6.6.0/24          0.0.0.0/0           multiport dports 21,80,8180 state NEW 
+    0     0 ACCEPT     tcp  --  *      *       192.168.6.0/24       0.0.0.0/0           tcp dpt:22 state NEW 
+    6   360 ACCEPT     tcp  --  *      *       172.16.6.1           0.0.0.0/0           tcp dpt:22 state NEW 
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0           limit: avg 5/min burst 5 LOG flags 0 level 4 prefix `IPT-DROP ' 
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 82 packets, 12742 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+$ cat /etc/iptables.rules
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p icmp --icmp-type echo-request -s 10.6.6.0/24 -j ACCEPT
+-A INPUT -p icmp --icmp-type echo-request -s 192.168.6.0/24 -j ACCEPT
+-A INPUT -p icmp --icmp-type echo-request -s 172.16.6.1 -j ACCEPT
+-A INPUT -p tcp -s 10.6.6.0/24 -m multiport --dports 21,80,8180 -m state --state NEW -j ACCEPT
+-A INPUT -p tcp -s 192.168.6.0/24 --dport 22 -m state --state NEW -j ACCEPT
+-A INPUT -p tcp -s 172.16.6.1 --dport 22 -m state --state NEW -j ACCEPT
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix "IPT-DROP "
+COMMIT
+
+$ grep -E "^(PermitRootLogin|AllowUsers)" /etc/ssh/sshd_config
+PermitRootLogin no
+AllowUsers webadmin
+
+$ sudo passwd -S (akun login)
+root P 05/18/2010 0 99999 7 -1
+msfadmin P 03/16/2010 0 99999 7 -1
+user L 03/31/2010 0 99999 7 -1
+service L 04/16/2010 0 99999 7 -1
+webadmin P 09/27/2026 0 99999 7 -1
+
+$ id webadmin
+uid=1003(webadmin) gid=1003(webadmin) groups=1003(webadmin),112(admin)
+
+$ ls /etc/rc2.d
+README
+S10sysklogd
+S10xserver-xorg-input-wacom
+S11klogd
+S16ssh
+S19mysql
+S20xinetd
+S89atd
+S89cron
+S90tomcat5.5
+S91apache2
+S99rc.local
+S99rmnologin

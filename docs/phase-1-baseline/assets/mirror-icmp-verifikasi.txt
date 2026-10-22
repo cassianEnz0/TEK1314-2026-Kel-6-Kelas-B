@@ -1,0 +1,45 @@
+# Bukti verifikasi ulang, 2026-10-22 16:42:03 +0700
+# tcpdump -i virbr-kel6x icmp, sumber trafik: Kali 10.6.6.10 ping -c 10 ke Target 172.16.6.10
+# Ping dipicu di dalam Kali lewat qemu-guest-agent (tanpa SSH).
+
+2026-10-22 16:42:05.035467 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 1, length 64
+2026-10-22 16:42:05.035523 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 1, length 64
+2026-10-22 16:42:05.035679 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 1, length 64
+2026-10-22 16:42:05.035694 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 1, length 64
+2026-10-22 16:42:06.049549 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 2, length 64
+2026-10-22 16:42:06.049601 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 2, length 64
+2026-10-22 16:42:06.049764 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 2, length 64
+2026-10-22 16:42:06.049782 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 2, length 64
+2026-10-22 16:42:07.073485 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 3, length 64
+2026-10-22 16:42:07.073521 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 3, length 64
+2026-10-22 16:42:07.073756 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 3, length 64
+2026-10-22 16:42:07.073786 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 3, length 64
+2026-10-22 16:42:08.097564 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 4, length 64
+2026-10-22 16:42:08.097611 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 4, length 64
+2026-10-22 16:42:08.097844 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 4, length 64
+2026-10-22 16:42:08.097870 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 4, length 64
+2026-10-22 16:42:09.121648 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 5, length 64
+2026-10-22 16:42:09.121695 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 5, length 64
+2026-10-22 16:42:09.121924 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 5, length 64
+2026-10-22 16:42:09.121948 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 5, length 64
+2026-10-22 16:42:10.145460 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 6, length 64
+2026-10-22 16:42:10.145497 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 6, length 64
+2026-10-22 16:42:10.145681 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 6, length 64
+2026-10-22 16:42:10.145704 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 6, length 64
+2026-10-22 16:42:11.169583 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 7, length 64
+2026-10-22 16:42:11.169625 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 7, length 64
+2026-10-22 16:42:11.169888 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 7, length 64
+2026-10-22 16:42:11.169919 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 7, length 64
+2026-10-22 16:42:12.193575 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 8, length 64
+2026-10-22 16:42:12.193620 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 8, length 64
+2026-10-22 16:42:12.193816 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 8, length 64
+2026-10-22 16:42:12.193839 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 8, length 64
+2026-10-22 16:42:13.217589 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 9, length 64
+2026-10-22 16:42:13.217635 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 9, length 64
+2026-10-22 16:42:13.217755 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 9, length 64
+2026-10-22 16:42:13.217768 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 9, length 64
+2026-10-22 16:42:14.241608 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 10, length 64
+2026-10-22 16:42:14.241658 IP 10.6.6.10 > 172.16.6.10: ICMP echo request, id 54933, seq 10, length 64
+2026-10-22 16:42:14.241793 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 10, length 64
+2026-10-22 16:42:14.241802 IP 172.16.6.10 > 10.6.6.10: ICMP echo reply, id 54933, seq 10, length 64
+
