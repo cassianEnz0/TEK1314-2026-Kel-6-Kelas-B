@@ -1,0 +1,10 @@
+# S2 data exfiltration via anon key (KONDISI HARDENED) - target 172.16.6.10
+# 2026-10-25 18:12:24 UTC
+
+## GET /rest/v1/sensor_readings
+{"code":"42501","details":null,"hint":"Grant the required privileges to the current role with: GRANT SELECT ON public.sensor_readings TO anon;","message":"permission denied for table sensor_readings"}
+[HTTP 401]
+
+## GET /rest/v1/profiles
+{"code":"42501","details":null,"hint":"Grant the required privileges to the current role with: GRANT SELECT ON public.profiles TO anon;","message":"permission denied for table profiles"}
+[HTTP 401]

@@ -1,0 +1,10 @@
+# S3 kredensial default + brute (KONDISI RAPUH) - target 172.16.6.10
+# 2026-10-25 18:09:21 UTC
+
+dashboard default creds -> HTTP 307
+brute force GoTrue:
+  'admin' -> 400
+  'password' -> 400
+  '123456' -> 400
+  'supabase' -> 400
+  'rahasia' -> 400

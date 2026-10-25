@@ -1,0 +1,4 @@
+# S3 kredensial default (KONDISI HARDENED) - target 172.16.6.10
+# 2026-10-25 18:12:24 UTC
+
+dashboard default creds -> HTTP 401

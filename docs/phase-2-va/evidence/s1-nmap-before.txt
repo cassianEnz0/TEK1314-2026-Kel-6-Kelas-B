@@ -1,0 +1,115 @@
+# nmap -Pn -sV -p 22,3000,5432,6543,8000,8443,9999 172.16.6.10  (KONDISI RAPUH)
+# 2026-10-25 18:07:37 UTC
+
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-26 01:07 +0700
+Nmap scan report for 172.16.6.10
+Host is up (0.00045s latency).
+
+PORT     STATE  SERVICE     VERSION
+22/tcp   open   ssh         OpenSSH 9.6p1 Ubuntu 3ubuntu13.20 (Ubuntu Linux; protocol 2.0)
+3000/tcp closed ppp
+5432/tcp open   postgresql?
+6543/tcp open   mythtv?
+8000/tcp open   http-alt    envoy
+8443/tcp closed https-alt
+9999/tcp closed abyss
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5432-TCP:V=7.991%I=7%D=10/26%Time=6ADE456F%P=x86_64-pc-linux-gnu%r(
+SF:GenericLines,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20sta
+SF:rtup\x20message:\x20:bad_startup_payload\0SFATAL\0\0")%r(GetRequest,2A,
+SF:"HTTP/1\.1\x20204\x20OK\r\nx-app-version:\x202\.9\.13\r\n\r\n")%r(SMBPr
+SF:ogNeg,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x2
+SF:0message:\x20:bad_startup_payload\0SFATAL\0\0")%r(HTTPOptions,55,"E\0\0
+SF:\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x20:b
+SF:ad_startup_payload\0SFATAL\0\0")%r(RTSPRequest,55,"E\0\0\0TC08P01\0M\(E
+SF:STARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_payl
+SF:oad\0SFATAL\0\0")%r(RPCCheck,4E,"E\0\0\0MC08P01\0M\(ESTARTUPMESSAGE\)\x
+SF:20Invalid\x20startup\x20message:\x20:missing_user\0SFATAL\0\0")%r(DNSVe
+SF:rsionBindReqTCP,4E,"E\0\0\0MC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20
+SF:startup\x20message:\x20:missing_user\0SFATAL\0\0")%r(DNSStatusRequestTC
+SF:P,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20mes
+SF:sage:\x20:bad_startup_payload\0SFATAL\0\0")%r(Help,55,"E\0\0\0TC08P01\0
+SF:M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_
+SF:payload\0SFATAL\0\0")%r(SSLSessionReq,55,"E\0\0\0TC08P01\0M\(ESTARTUPME
+SF:SSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_payload\0SFAT
+SF:AL\0\0")%r(TerminalServerCookie,4E,"E\0\0\0MC08P01\0M\(ESTARTUPMESSAGE\
+SF:)\x20Invalid\x20startup\x20message:\x20:missing_user\0SFATAL\0\0")%r(TL
+SF:SSessionReq,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20star
+SF:tup\x20message:\x20:bad_startup_payload\0SFATAL\0\0")%r(Kerberos,4E,"E\
+SF:0\0\0MC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x2
+SF:0:missing_user\0SFATAL\0\0")%r(X11Probe,55,"E\0\0\0TC08P01\0M\(ESTARTUP
+SF:MESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_payload\0SF
+SF:ATAL\0\0")%r(FourOhFourRequest,2A,"HTTP/1\.1\x20204\x20OK\r\nx-app-vers
+SF:ion:\x202\.9\.13\r\n\r\n")%r(LPDString,55,"E\0\0\0TC08P01\0M\(ESTARTUPM
+SF:ESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_payload\0SFA
+SF:TAL\0\0")%r(LDAPSearchReq,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20I
+SF:nvalid\x20startup\x20message:\x20:bad_startup_payload\0SFATAL\0\0");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port6543-TCP:V=7.991%I=7%D=10/26%Time=6ADE456F%P=x86_64-pc-linux-gnu%r(
+SF:DNSVersionBindReqTCP,4E,"E\0\0\0MC08P01\0M\(ESTARTUPMESSAGE\)\x20Invali
+SF:d\x20startup\x20message:\x20:missing_user\0SFATAL\0\0")%r(GenericLines,
+SF:55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20messa
+SF:ge:\x20:bad_startup_payload\0SFATAL\0\0")%r(GetRequest,2A,"HTTP/1\.1\x2
+SF:0204\x20OK\r\nx-app-version:\x202\.9\.13\r\n\r\n")%r(HTTPOptions,55,"E\
+SF:0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x2
+SF:0:bad_startup_payload\0SFATAL\0\0")%r(RTSPRequest,55,"E\0\0\0TC08P01\0M
+SF:\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_p
+SF:ayload\0SFATAL\0\0")%r(RPCCheck,4E,"E\0\0\0MC08P01\0M\(ESTARTUPMESSAGE\
+SF:)\x20Invalid\x20startup\x20message:\x20:missing_user\0SFATAL\0\0")%r(DN
+SF:SStatusRequestTCP,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x
+SF:20startup\x20message:\x20:bad_startup_payload\0SFATAL\0\0")%r(Help,55,"
+SF:E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\
+SF:x20:bad_startup_payload\0SFATAL\0\0")%r(SSLSessionReq,55,"E\0\0\0TC08P0
+SF:1\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_start
+SF:up_payload\0SFATAL\0\0")%r(TerminalServerCookie,4E,"E\0\0\0MC08P01\0M\(
+SF:ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x20:missing_user\0S
+SF:FATAL\0\0")%r(TLSSessionReq,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x2
+SF:0Invalid\x20startup\x20message:\x20:bad_startup_payload\0SFATAL\0\0")%r
+SF:(Kerberos,4E,"E\0\0\0MC08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startu
+SF:p\x20message:\x20:missing_user\0SFATAL\0\0")%r(SMBProgNeg,55,"E\0\0\0TC
+SF:08P01\0M\(ESTARTUPMESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_s
+SF:tartup_payload\0SFATAL\0\0")%r(X11Probe,55,"E\0\0\0TC08P01\0M\(ESTARTUP
+SF:MESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_payload\0SF
+SF:ATAL\0\0")%r(FourOhFourRequest,2A,"HTTP/1\.1\x20204\x20OK\r\nx-app-vers
+SF:ion:\x202\.9\.13\r\n\r\n")%r(LPDString,55,"E\0\0\0TC08P01\0M\(ESTARTUPM
+SF:ESSAGE\)\x20Invalid\x20startup\x20message:\x20:bad_startup_payload\0SFA
+SF:TAL\0\0")%r(LDAPSearchReq,55,"E\0\0\0TC08P01\0M\(ESTARTUPMESSAGE\)\x20I
+SF:nvalid\x20startup\x20message:\x20:bad_startup_payload\0SFATAL\0\0");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8000-TCP:V=7.991%I=7%D=10/26%Time=6ADE4576%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,A6,"HTTP/1\.1\x20426\x20Upgrade\x20Required\r\ncontent-lengt
+SF:h:\x2016\r\ncontent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x
+SF:202026\x2018:07:48\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r
+SF:\n\r\nUpgrade\x20Required")%r(FourOhFourRequest,A6,"HTTP/1\.1\x20426\x2
+SF:0Upgrade\x20Required\r\ncontent-length:\x2016\r\ncontent-type:\x20text/
+SF:plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:07:54\x20GMT\r\nserve
+SF:r:\x20envoy\r\nconnection:\x20close\r\n\r\nUpgrade\x20Required")%r(Sock
+SF:s5,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\nc
+SF:ontent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:
+SF:07:55\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20
+SF:Request")%r(Socks4,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-le
+SF:ngth:\x2011\r\ncontent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oc
+SF:t\x202026\x2018:07:56\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20clos
+SF:e\r\n\r\nBad\x20Request")%r(HTTPOptions,A6,"HTTP/1\.1\x20426\x20Upgrade
+SF:\x20Required\r\ncontent-length:\x2016\r\ncontent-type:\x20text/plain\r\
+SF:ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:07:57\x20GMT\r\nserver:\x20en
+SF:voy\r\nconnection:\x20close\r\n\r\nUpgrade\x20Required")%r(RTSPRequest,
+SF:9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncont
+SF:ent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:07:
+SF:58\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20Req
+SF:uest")%r(DNSVersionBindReqTCP,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\
+SF:ncontent-length:\x2011\r\ncontent-type:\x20text/plain\r\ndate:\x20Sun,\
+SF:x2025\x20Oct\x202026\x2018:08:04\x20GMT\r\nserver:\x20envoy\r\nconnecti
+SF:on:\x20close\r\n\r\nBad\x20Request")%r(DNSStatusRequestTCP,9C,"HTTP/1\.
+SF:1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x2
+SF:0text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:08:05\x20GMT\r\
+SF:nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(Hel
+SF:p,9C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\nco
+SF:ntent-type:\x20text/plain\r\ndate:\x20Sun,\x2025\x20Oct\x202026\x2018:0
+SF:8:06\x20GMT\r\nserver:\x20envoy\r\nconnection:\x20close\r\n\r\nBad\x20R
+SF:equest");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 103.79 seconds

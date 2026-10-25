@@ -45,3 +45,14 @@ Catatan kegiatan proyek PBL TEK1314 Keamanan Siber. Entri terbaru di bawah. Bagi
 - `docs/phase-1-baseline/baseline-report.md` selesai, struktur folder repository disesuaikan dengan panduan.
 - Demo: [isi tanggal dan catatan dari dosen]
 - PIC: [isi]
+
+## Fase 2: Vulnerability Assessment (Replika Self-Hosted Supabase)
+
+26 Oktober 2026:
+
+- Target Node generik Fase 1 (Metasploitable 2) diganti replika self-hosted Supabase di slot IP yang sama (172.16.6.10), karena Fase 2 menyerang replika backend proyek IoT kelompok, bukan Supabase Cloud asli. Alasan dan pemetaan komponen di `docs/phase-2-va/tech_stack_declaration.md`.
+- Target dibangun di Ubuntu Server 24.04 + Docker, stack resmi supabase/docker (PostgreSQL, GoTrue, PostgREST, gateway Envoy, Studio), dengan data dummy. Skrip di `scripts/phase-2/provision-supabase.sh`.
+- Attack plan Red Team disusun: 4 skenario (recon, data exfiltration via REST, brute force, SYN flood opsional). Dokumen di `docs/phase-2-va/attack_plan.md`, skrip di `scripts/phase-2/attack/`.
+- Hardening Blue Team diterapkan dan diverifikasi: RLS, ganti kredensial default, pooler ke loopback, matikan service tak dipakai, UFW, SSH key-only, fail2ban. Dokumen di `docs/phase-2-va/hardening_plan.md` dan `hardening_checklist.md`, skrip di `scripts/phase-2/harden-supabase.sh`.
+- Bukti before/after (nmap, exfiltrasi, kredensial default) di `docs/phase-2-va/evidence/`. Hasil terverifikasi: port terbuka turun dari 4 jadi 2, exfiltrasi anon berubah jadi HTTP 401, kredensial default dashboard jadi HTTP 401.
+- PIC: [isi]

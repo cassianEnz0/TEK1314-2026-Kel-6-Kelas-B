@@ -30,7 +30,7 @@ Detail desain jaringan:
 docs/
   design/              Minggu 4: topologi dan IP plan
   phase-1-baseline/    Minggu 5 sampai 7: baseline report, bukti hardening dan logging
-  phase-2-va/          Fase 2: vulnerability assessment (belum dimulai)
+  phase-2-va/          Fase 2: vulnerability assessment (replika self-hosted Supabase)
   phase-3-incident/    Fase 3: incident response (belum dimulai)
 scripts/               Skrip untuk membangun ulang lab dan hardening
 LOGBOOK.md             Catatan kegiatan per minggu
@@ -39,8 +39,13 @@ LOGBOOK.md             Catatan kegiatan per minggu
 ## Progres
 
 - Fase 1 (baseline dan hardening): [docs/phase-1-baseline/baseline-report.md](docs/phase-1-baseline/baseline-report.md)
+- Fase 2 (vulnerability assessment replika Supabase): [docs/phase-2-va/README.md](docs/phase-2-va/README.md)
 - Pedoman command lab: [docs/phase-1-baseline/pedoman-command.md](docs/phase-1-baseline/pedoman-command.md)
 - Logbook: [LOGBOOK.md](LOGBOOK.md)
+
+> Catatan Fase 2: Target Node generik Fase 1 (Metasploitable 2) diganti replika
+> self-hosted Supabase di slot IP yang sama (172.16.6.10), karena Fase 2 menyerang
+> replika backend proyek IoT kelompok, bukan Supabase Cloud asli milik Mitra.
 
 ## Menyalakan Lab
 
