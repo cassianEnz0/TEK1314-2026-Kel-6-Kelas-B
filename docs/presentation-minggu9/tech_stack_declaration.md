@@ -3,7 +3,7 @@
 **Mata Kuliah:** TEK1314 - Keamanan Siber
 **Kelompok:** 6 Kelas B
 **Dokumen:** Deklarasi Tech Stack (Panduan PBL Bagian III)
-**Path repo:** `docs/phase-2-va/tech_stack_declaration.md`
+**Path repo:** `docs/presentation-minggu9/tech_stack_declaration.md`
 
 ---
 
@@ -84,8 +84,8 @@ ke jaringan lab.
 Hasil nmap nyata pada kondisi default (rapuh): port 22, 5432, 6543, dan 8000
 terbuka. Daftar ini menjadi baseline, lalu tujuan hardening adalah menutup pooler
 (5432/6543) dan hanya menyisakan gateway (8000) plus SSH yang dibatasi. Bukti ada
-di [evidence/s1-nmap-before.txt](evidence/s1-nmap-before.txt) dan
-[evidence/s1-nmap-after.txt](evidence/s1-nmap-after.txt).
+di [evidence/s1-nmap-before.txt](../blueteam/evidence/s1-nmap-before.txt) dan
+[evidence/s1-nmap-after.txt](../blueteam/evidence/s1-nmap-after.txt).
 
 ---
 

@@ -30,16 +30,22 @@ Detail desain jaringan:
 docs/
   design/              Minggu 4: topologi dan IP plan
   phase-1-baseline/    Minggu 5 sampai 7: baseline report, bukti hardening dan logging
-  phase-2-va/          Fase 2: vulnerability assessment (replika self-hosted Supabase)
+  presentation-minggu9/ Minggu 9: slide (slides.pdf) dan deklarasi tech stack
+  blueteam/            Fase 2: hardening checklist, plan, dan bukti before/after
+  redteam/             Fase 2: attack plan dan bukti eksekusi serangan
+  purple-team-log.md   Fase 2: log 5 tahap Purple Team Loop per skenario
   phase-3-incident/    Fase 3: incident response (belum dimulai)
-scripts/               Skrip untuk membangun ulang lab dan hardening
+scripts/               Skrip untuk membangun ulang lab, hardening, dan Fase 2
 LOGBOOK.md             Catatan kegiatan per minggu
 ```
 
 ## Progres
 
 - Fase 1 (baseline dan hardening): [docs/phase-1-baseline/baseline-report.md](docs/phase-1-baseline/baseline-report.md)
-- Fase 2 (vulnerability assessment replika Supabase): [docs/phase-2-va/README.md](docs/phase-2-va/README.md)
+- Fase 2 Deklarasi Tech Stack: [docs/presentation-minggu9/tech_stack_declaration.md](docs/presentation-minggu9/tech_stack_declaration.md)
+- Fase 2 Blue Team (hardening): [docs/blueteam/hardening_checklist.md](docs/blueteam/hardening_checklist.md), [docs/blueteam/hardening_plan.md](docs/blueteam/hardening_plan.md)
+- Fase 2 Red Team (attack plan): [docs/redteam/attack_plan.md](docs/redteam/attack_plan.md)
+- Fase 2 Purple Team Loop: [docs/purple-team-log.md](docs/purple-team-log.md)
 - Pedoman command lab: [docs/phase-1-baseline/pedoman-command.md](docs/phase-1-baseline/pedoman-command.md)
 - Logbook: [LOGBOOK.md](LOGBOOK.md)
 

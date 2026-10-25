@@ -3,7 +3,7 @@
 **Mata Kuliah:** TEK1314 - Keamanan Siber
 **Kelompok:** 6 Kelas B, Tim Blue Team
 **Standar:** Panduan PBL Bagian VIII (min. 8 kontrol, min. 2 per kategori A/B/C)
-**Path repo:** `docs/phase-2-va/hardening_checklist.md`
+**Path repo:** `docs/blueteam/hardening_checklist.md`
 **Target:** 172.16.6.10 (Ubuntu 24.04 + Supabase self-hosted)
 
 ---

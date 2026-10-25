@@ -4,7 +4,7 @@
 **Kelompok:** 6 Kelas B, Tim Red Team
 **Standar:** Panduan PBL Bagian IX (min. 3 skenario, min. 2 kategori berbeda; DoS maks. 1 dari 3)
 **Target:** Target Node REPLIKA (self-hosted Supabase) di lab, BUKAN `*.supabase.co` asli
-**Path repo:** `docs/phase-2-va/attack_plan.md`
+**Path repo:** `docs/redteam/attack_plan.md`
 
 ---
 
@@ -48,7 +48,7 @@ nmap -Pn -sV -T4 -p 22,3000,5432,6543,8000,8443,9999 172.16.6.10
 ```
 
 **Hasil kondisi rapuh:** 22, 5432, 6543, dan 8000 terbuka; 3000/8443/9999 tertutup
-karena di balik gateway. Bukti: [evidence/s1-nmap-before.txt](evidence/s1-nmap-before.txt).
+karena di balik gateway. Bukti: [evidence/s1-nmap-before.txt](../blueteam/evidence/s1-nmap-before.txt).
 
 **Deteksi Blue Team:** alert port scan di Security Onion (Zeek/Suricata).
 **Target celah (Minggu 4):** pooler Postgres (5432/6543) terekspos tanpa firewall.
@@ -73,7 +73,7 @@ curl -s "http://172.16.6.10:8000/rest/v1/profiles?select=*" \
 
 **Hasil kondisi rapuh:** seluruh baris `sensor_readings` tumpah, dan tabel
 `profiles` membocorkan data pengguna lengkap dengan email dan nomor HP. Ini celah
-paling khas Supabase. Bukti: [evidence/s2-exfil-before.json](evidence/s2-exfil-before.json).
+paling khas Supabase. Bukti: [evidence/s2-exfil-before.json](../blueteam/evidence/s2-exfil-before.json).
 
 **Deteksi Blue Team:** lonjakan request `/rest/v1/*` dengan `select=*` di log gateway.
 **Target celah (Minggu 4):** RLS belum aktif (ditutup kontrol C1 di `hardening_plan.md`).
@@ -103,7 +103,7 @@ done
 
 **Hasil kondisi rapuh:** kredensial default dashboard diterima (HTTP 307 redirect,
 bukan 401 tolak), dan tidak ada rate limit. Bukti:
-[evidence/s3-brute-before.txt](evidence/s3-brute-before.txt).
+[evidence/s3-brute-before.txt](../blueteam/evidence/s3-brute-before.txt).
 
 **Deteksi Blue Team:** banyak percobaan login gagal (trigger fail2ban / signature Suricata).
 **Target celah (Minggu 4):** kredensial default dashboard (A4) dan tidak ada rate limit (A3).
@@ -149,7 +149,7 @@ sudah dipetakan di `hardening_plan.md`:
 
 ### Bukti verifikasi (sudah dijalankan di lab)
 
-Serangan diulang setelah hardening (bukti di folder `evidence/`):
+Serangan diulang setelah hardening (bukti di folder `../blueteam/evidence/`):
 
 - S1: port terbuka menyusut dari {22, 5432, 6543, 8000} menjadi {22, 8000}; 5432
   dan 6543 menjadi filtered.

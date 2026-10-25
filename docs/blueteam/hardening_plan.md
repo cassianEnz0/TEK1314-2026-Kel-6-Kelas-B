@@ -3,7 +3,7 @@
 **Mata Kuliah:** TEK1314 - Keamanan Siber
 **Kelompok:** 6 Kelas B, Tim Blue Team
 **Dokumen:** rencana teknis hardening, pendamping `hardening_checklist.md`
-**Path repo:** `docs/phase-2-va/hardening_plan.md`
+**Path repo:** `docs/blueteam/hardening_plan.md`
 **Acuan:** Panduan PBL Bagian VIII dan Bagian X (Purple Team Loop)
 
 > Seluruh perintah dijalankan hanya di Target Node replika (172.16.6.10), bukan di
